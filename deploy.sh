@@ -4,3 +4,4 @@ ng build
 cp ramaniwebsite/dist/ramaniwebsite/* ./
 git add .
 git commit -m "."
+git push origin main
