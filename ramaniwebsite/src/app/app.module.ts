@@ -8,6 +8,7 @@ import { BodyComponent } from './body/body.component';
 import { HomeComponent } from './home/home.component';
 import { ImageComponent } from './image/image.component';
 import { ImagesComponent } from './images/images.component';
+import { ImageCardComponent } from './image-card/image-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ImagesComponent } from './images/images.component';
     BodyComponent,
     HomeComponent,
     ImageComponent,
-    ImagesComponent
+    ImagesComponent,
+    ImageCardComponent
   ],
   imports: [
     BrowserModule,

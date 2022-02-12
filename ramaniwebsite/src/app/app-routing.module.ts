@@ -5,7 +5,7 @@ import {ImageComponent} from './image/image.component';
 
 const routes: Routes = [
   {path: '', component: ImagesComponent},
-  {path: 'image', component: ImageComponent},
+  {path: 'image/:id', component: ImageComponent},
   {path: '**', redirectTo: ''},
 ];
 
