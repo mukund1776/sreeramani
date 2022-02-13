@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import arrayShuffle from 'array-shuffle';
+import { RandomOrderImageIdsService } from '../random-order-image-ids.service';
 
 @Component({
   selector: 'app-images',
@@ -10,9 +10,9 @@ export class ImagesComponent implements OnInit {
   noOfImages = 18;
   imageIdList: number[] = [];
 
-  constructor() { }
+  constructor(private randomOrderImageIdsService: RandomOrderImageIdsService) { }
 
   ngOnInit(): void {
-    this.imageIdList = arrayShuffle(Array.from({length: this.noOfImages}, (_, i) => i + 1));
+    this.imageIdList = this.randomOrderImageIdsService.get(this.noOfImages);
   }
 }

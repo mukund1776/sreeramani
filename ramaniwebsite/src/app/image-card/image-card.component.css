@@ -1,9 +1,13 @@
 .card {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+img {
+  cursor: pointer;
 }

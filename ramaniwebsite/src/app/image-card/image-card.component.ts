@@ -1,16 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-image-card',
   templateUrl: './image-card.component.html',
   styleUrls: ['./image-card.component.css']
 })
-export class ImageCardComponent implements OnInit {
+export class ImageCardComponent {
   @Input() id = 0;
 
-  constructor() { }
+  constructor(private route: Router) { }
 
-  ngOnInit(): void {
+  navigateToImage(id: number) {
+    this.route.navigate(['/image', id]);
   }
-
 }
