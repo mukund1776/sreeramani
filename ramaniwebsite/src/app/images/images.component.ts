@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import arrayShuffle from 'array-shuffle';
 
 @Component({
   selector: 'app-images',
@@ -12,6 +13,6 @@ export class ImagesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.imageIdList = Array.from({length: this.noOfImages}, (_, i) => i + 1);
+    this.imageIdList = arrayShuffle(Array.from({length: this.noOfImages}, (_, i) => i + 1));
   }
 }
