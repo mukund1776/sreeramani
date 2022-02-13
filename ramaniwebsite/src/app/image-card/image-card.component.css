@@ -1,0 +1,9 @@
+.card {
+    display: inline-flex;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
