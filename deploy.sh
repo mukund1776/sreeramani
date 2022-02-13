@@ -1,6 +1,6 @@
 #!/bin/sh
 echo Deploying...
-rm *.html *.js *.css *.ico *.txt
+rm -r *.html *.js *.css *.ico *.txt assets 
 cd ramaniwebsite
 ng build
 cd ..
