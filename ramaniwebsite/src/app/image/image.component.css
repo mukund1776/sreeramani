@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+img {
+  max-width: 100vh;
+  max-height: 90vh;
+}
