@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { RandomOrderImageIdsService } from '../random-order-image-ids.service';
 import { SwipeDetectService } from '../swipe-detect.service';
 
@@ -8,8 +9,9 @@ import { SwipeDetectService } from '../swipe-detect.service';
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.css'],
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent implements OnInit, OnDestroy {
   id = 0;
+  swipeDetectSubscription: Subscription;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -19,14 +21,16 @@ export class ImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.swipeDetectService.subscribe((value) => {
-      if (value === 'next') {
-        this.goToNextImage();
+    this.swipeDetectSubscription = this.swipeDetectService.subscribe(
+      (value) => {
+        if (value === 'next') {
+          this.goToNextImage();
+        }
+        if (value === 'previous') {
+          this.goToPreviousImage();
+        }
       }
-      if (value === 'previous') {
-        this.goToPreviousImage();
-      }
-    });
+    );
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -53,5 +57,9 @@ export class ImageComponent implements OnInit {
     this.router
       .navigateByUrl('/', { skipLocationChange: true })
       .then(() => this.router.navigate(['image', id]));
+  }
+
+  ngOnDestroy(): void {
+    this.swipeDetectSubscription.unsubscribe();
   }
 }
