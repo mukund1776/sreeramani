@@ -11,7 +11,7 @@ import { SwipeDetectService } from '../swipe-detect.service';
 })
 export class ImageComponent implements OnInit, OnDestroy {
   id = 0;
-  swipeDetectSubscription: Subscription;
+  swipeDetectSubscription!: Subscription;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
