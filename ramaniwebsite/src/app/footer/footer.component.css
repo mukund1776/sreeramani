@@ -1,0 +1,15 @@
+:host {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+}
+
+p {
+  display: none;
+}
+
+p.dislayIfImagePage {
+  display: block;
+}
