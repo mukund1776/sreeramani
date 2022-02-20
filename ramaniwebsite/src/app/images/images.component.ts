@@ -7,12 +7,11 @@ import { RandomOrderImageIdsService } from '../random-order-image-ids.service';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  noOfImages = 18;
   imageIdList: number[] = [];
 
   constructor(private randomOrderImageIdsService: RandomOrderImageIdsService) { }
 
   ngOnInit(): void {
-    this.imageIdList = this.randomOrderImageIdsService.get(this.noOfImages);
+    this.imageIdList = this.randomOrderImageIdsService.get();
   }
 }

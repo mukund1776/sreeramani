@@ -1,1 +1,3 @@
-<app-home></app-home>
+<div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+  <app-home></app-home>
+</div>
