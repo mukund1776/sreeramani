@@ -14,7 +14,6 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(event);
         this.dislayIfImagePage = event.url.includes('/image/');
       }
     });
