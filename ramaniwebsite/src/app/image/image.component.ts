@@ -1,6 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ImageDataService } from '../image-data.service';
 import { RandomOrderImageIdsService } from '../random-order-image-ids.service';
 import { SwipeDetectService } from '../swipe-detect.service';
 
@@ -11,16 +12,25 @@ import { SwipeDetectService } from '../swipe-detect.service';
 })
 export class ImageComponent implements OnInit, OnDestroy {
   id = 0;
+  name = '';
+  description = '';
+
   swipeDetectSubscription!: Subscription;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private randomOrderImageIdsService: RandomOrderImageIdsService,
-    private swipeDetectService: SwipeDetectService
+    private swipeDetectService: SwipeDetectService,
+    private imageDataService: ImageDataService,
   ) {}
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    const imageDetails = this.imageDataService.getImageDetails(this.id);
+    if (imageDetails) {
+      this.name = imageDetails.name;
+      this.description = imageDetails.description;
+    }
     this.swipeDetectSubscription = this.swipeDetectService.subscribe(
       (value) => {
         if (value === 'next') {
