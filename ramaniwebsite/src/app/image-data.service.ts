@@ -9,8 +9,8 @@ export class ImageDataService {
   getImageDetails(id: number) {
     return {
       1: {
-        'name': 'Great Image',
-        'description': 'Amazing description',
+        'name': '',
+        'description': 'Like a peacock 🦚 your beauty is multiplied when you spread your wings and show the world yourself',
       }
     }[1];
   }
